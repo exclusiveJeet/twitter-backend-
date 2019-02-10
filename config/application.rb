@@ -20,6 +20,10 @@ Bundler.require(*Rails.groups)
 module TwitterBackend
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => '*',
+  #  'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+    }
     config.load_defaults 5.2
 
     # Settings in config/environments/* take precedence over those specified here.
