@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_02_09_062335) do
     t.text "firstname"
     t.text "lastname"
     t.text "handle"
-    t.text "password"
+    t.text "password_digest"
     t.text "image"
     t.text "email"
     t.datetime "created_at", null: false
