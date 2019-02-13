@@ -1,4 +1,4 @@
-# == Schema Information
+st# == Schema Information
 #
 # Table name: tweets
 #
