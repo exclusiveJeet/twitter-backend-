@@ -1,15 +1,13 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user
 
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all
-
-    respond_to do |format|
-      format.html
-      format.json { render json:@tweets}
-    end
+    @tweets = Tweet.all.order("created_at Desc")
+    render json:@tweets, :include => :user
+     end
   end
 
   # GET /tweets/1
@@ -76,4 +74,3 @@ class TweetsController < ApplicationController
     def tweet_params
       params.require(:tweet).permit(:content)
     end
-end

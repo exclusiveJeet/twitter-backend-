@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-u1 = User.create :firstname => "Inder" , :lastname =>"Singh" , :password => "123" , :image => "" , :email =>"exclusive_jeet@yahoo.com"
-u2 = User.create :firstname => "Arun" , :lastname =>"Dhungel" , :password => "123"  ,:image => "" , :email =>"Arun@gmail.com"
-u3 = User.create :firstname => "Daniel" , :lastname =>"Meneses" , :password => "123" , :image => "" , :email =>"Daniel@gmail.com"
+u1 = User.create :firstname => "Inder" , :lastname =>"Singh" , :handle =>"Inder123", :password => "123" , :image => "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" , :email =>"exclusive_jeet@yahoo.com"
+u2 = User.create :firstname => "Arun" , :lastname =>"Dhungel" , :handle =>"Arun456", :password => "123"  ,:image => "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" , :email =>"Arun@gmail.com"
+u3 = User.create :firstname => "Daniel" , :lastname =>"Meneses" , :handle =>"Daniel8910", :password => "123" , :image => "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" , :email =>"Daniel@gmail.com"
 
 
 Tweet.destroy_all
@@ -46,8 +46,3 @@ u3.likes << l5 << l6
 t1.likes << l3 << l5
 t2.likes << l1 << l6
 t3.likes << l2 << l4
-
-
-
-
-
