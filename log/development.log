@@ -4621,3 +4621,392 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (6.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (230.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "twitter-backend_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (199.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "twitter-backend_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (532.6ms)[0m  [1m[35mCREATE DATABASE "twitter-backend_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (421.0ms)[0m  [1m[35mCREATE DATABASE "twitter-backend_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3610598894725814250)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190209045922)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (47.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "firstname" text, "lastname" text, "handle" text, "password_digest" text, "image" text, "email" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190209045922_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190209045922"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTweets (20190209051206)
+  [1m[35m (43.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "tweets" ("id" bigserial primary key, "content" text, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190209051206_create_tweets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190209051206"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateLikes (20190209062335)
+  [1m[35m (39.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "user_id" integer, "tweet_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190209062335_create_likes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190209062335"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (2.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-02-14 06:02:38.708916"], ["updated_at", "2019-02-14 06:02:38.708916"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3610598894725814250)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("firstname", "lastname", "handle", "password_digest", "image", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["firstname", "Inder"], ["lastname", "Singh"], ["handle", "Inder123"], ["password_digest", "$2a$10$AB0jlURC4g1b0awxHanmwOEuRS0XLN8Hs8Jm8CsiWVYWBGIm4VxGG"], ["image", "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png"], ["email", "exclusive_jeet@yahoo.com"], ["created_at", "2019-02-14 06:02:45.326848"], ["updated_at", "2019-02-14 06:02:45.326848"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (3.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("firstname", "lastname", "handle", "password_digest", "image", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["firstname", "Arun"], ["lastname", "Dhungel"], ["handle", "Arun456"], ["password_digest", "$2a$10$qvlylq/AQQ7A3HujVwxime9FTmlNwU/MGqHFW2n9a34usjSZ5BBH."], ["image", "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png"], ["email", "Arun@gmail.com"], ["created_at", "2019-02-14 06:02:45.403793"], ["updated_at", "2019-02-14 06:02:45.403793"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("firstname", "lastname", "handle", "password_digest", "image", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["firstname", "Daniel"], ["lastname", "Meneses"], ["handle", "Daniel8910"], ["password_digest", "$2a$10$krC1LL9wuTsIWC51pOLsvuhuFednvt.FAH/BjfGcfOhAkEJGvVP0W"], ["image", "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png"], ["email", "Daniel@gmail.com"], ["created_at", "2019-02-14 06:02:45.481382"], ["updated_at", "2019-02-14 06:02:45.481382"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:9
+  [1m[35m (41.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (26.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (20.3ms)[0m  [1m[32mINSERT INTO "users" ("firstname", "lastname", "handle", "password_digest", "image", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["firstname", "Inder"], ["lastname", "Singh"], ["handle", "Inder123"], ["password_digest", "$2a$10$O3cyLetH2uDGFwYBlTKLjekhy.07.aRr3ah4S7oR8e0zwsuZ0Raxi"], ["image", "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png"], ["email", "exclusive_jeet@yahoo.com"], ["created_at", "2019-02-14 06:03:35.939822"], ["updated_at", "2019-02-14 06:03:35.939822"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (7.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("firstname", "lastname", "handle", "password_digest", "image", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["firstname", "Arun"], ["lastname", "Dhungel"], ["handle", "Arun456"], ["password_digest", "$2a$10$6I8Npkx3qVLnY2FkvlfxduVUGngYgDkrjGeP4Ys5.UC/dMWBBnPyK"], ["image", "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png"], ["email", "Arun@gmail.com"], ["created_at", "2019-02-14 06:03:36.057330"], ["updated_at", "2019-02-14 06:03:36.057330"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("firstname", "lastname", "handle", "password_digest", "image", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["firstname", "Daniel"], ["lastname", "Meneses"], ["handle", "Daniel8910"], ["password_digest", "$2a$10$2OrrwY7vliHaJydtJCPhAOAmX2d.s6VdlMS.Q98SMElzbR/LWAzQa"], ["image", "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png"], ["email", "Daniel@gmail.com"], ["created_at", "2019-02-14 06:03:36.135216"], ["updated_at", "2019-02-14 06:03:36.135216"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mTweet Load (1.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mTweet Create (3.3ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "This is Inder's Tweet"], ["created_at", "2019-02-14 06:03:36.181873"], ["updated_at", "2019-02-14 06:03:36.181873"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (17.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mTweet Create (7.0ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "This is Arun's Tweet"], ["created_at", "2019-02-14 06:03:36.208791"], ["updated_at", "2019-02-14 06:03:36.208791"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (17.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mTweet Create (8.8ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "This is Daniel's Tweet"], ["created_at", "2019-02-14 06:03:36.238503"], ["updated_at", "2019-02-14 06:03:36.238503"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (20.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mTweet Create (0.4ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "This is Inder's Tweet"], ["created_at", "2019-02-14 06:03:36.274429"], ["updated_at", "2019-02-14 06:03:36.274429"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (22.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mTweet Create (0.4ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "This is Arun's Tweet"], ["created_at", "2019-02-14 06:03:36.299772"], ["updated_at", "2019-02-14 06:03:36.299772"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mTweet Create (24.0ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "This is Daniel's Tweet"], ["created_at", "2019-02-14 06:03:36.309755"], ["updated_at", "2019-02-14 06:03:36.309755"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[36mLike Load (2.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes"[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mLike Create (0.7ms)[0m  [1m[32mINSERT INTO "likes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-02-14 06:03:36.368668"], ["updated_at", "2019-02-14 06:03:36.368668"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-02-14 06:03:36.377473"], ["updated_at", "2019-02-14 06:03:36.377473"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mLike Create (1.1ms)[0m  [1m[32mINSERT INTO "likes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-02-14 06:03:36.390586"], ["updated_at", "2019-02-14 06:03:36.390586"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mLike Create (0.3ms)[0m  [1m[32mINSERT INTO "likes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-02-14 06:03:36.399927"], ["updated_at", "2019-02-14 06:03:36.399927"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (42.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (5.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mLike Create (0.7ms)[0m  [1m[32mINSERT INTO "likes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-02-14 06:03:36.451154"], ["updated_at", "2019-02-14 06:03:36.451154"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mLike Create (0.4ms)[0m  [1m[32mINSERT INTO "likes" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-02-14 06:03:36.456233"], ["updated_at", "2019-02-14 06:03:36.456233"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mTweet Update (0.5ms)[0m  [1m[33mUPDATE "tweets" SET "user_id" = $1, "updated_at" = $2 WHERE "tweets"."id" = $3[0m  [["user_id", 4], ["updated_at", "2019-02-14 06:03:36.520831"], ["id", 1]]
+  ↳ db/seeds.rb:35
+  [1m[35m (41.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (3.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mTweet Update (5.1ms)[0m  [1m[33mUPDATE "tweets" SET "user_id" = $1, "updated_at" = $2 WHERE "tweets"."id" = $3[0m  [["user_id", 4], ["updated_at", "2019-02-14 06:03:36.568753"], ["id", 4]]
+  ↳ db/seeds.rb:35
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mTweet Update (2.2ms)[0m  [1m[33mUPDATE "tweets" SET "user_id" = $1, "updated_at" = $2 WHERE "tweets"."id" = $3[0m  [["user_id", 5], ["updated_at", "2019-02-14 06:03:36.579896"], ["id", 2]]
+  ↳ db/seeds.rb:36
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mTweet Update (0.6ms)[0m  [1m[33mUPDATE "tweets" SET "user_id" = $1, "updated_at" = $2 WHERE "tweets"."id" = $3[0m  [["user_id", 5], ["updated_at", "2019-02-14 06:03:36.588563"], ["id", 5]]
+  ↳ db/seeds.rb:36
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mTweet Update (12.6ms)[0m  [1m[33mUPDATE "tweets" SET "user_id" = $1, "updated_at" = $2 WHERE "tweets"."id" = $3[0m  [["user_id", 6], ["updated_at", "2019-02-14 06:03:36.594147"], ["id", 3]]
+  ↳ db/seeds.rb:37
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mTweet Update (0.6ms)[0m  [1m[33mUPDATE "tweets" SET "user_id" = $1, "updated_at" = $2 WHERE "tweets"."id" = $3[0m  [["user_id", 6], ["updated_at", "2019-02-14 06:03:36.611866"], ["id", 6]]
+  ↳ db/seeds.rb:37
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:41
+  [1m[36mLike Update (0.5ms)[0m  [1m[33mUPDATE "likes" SET "user_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["user_id", 4], ["updated_at", "2019-02-14 06:03:36.620760"], ["id", 1]]
+  ↳ db/seeds.rb:41
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:41
+  [1m[36mLike Update (0.5ms)[0m  [1m[33mUPDATE "likes" SET "user_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["user_id", 4], ["updated_at", "2019-02-14 06:03:36.626341"], ["id", 2]]
+  ↳ db/seeds.rb:41
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mLike Update (0.5ms)[0m  [1m[33mUPDATE "likes" SET "user_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["user_id", 5], ["updated_at", "2019-02-14 06:03:36.632143"], ["id", 3]]
+  ↳ db/seeds.rb:42
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mLike Update (0.5ms)[0m  [1m[33mUPDATE "likes" SET "user_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["user_id", 5], ["updated_at", "2019-02-14 06:03:36.637135"], ["id", 4]]
+  ↳ db/seeds.rb:42
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mLike Update (0.5ms)[0m  [1m[33mUPDATE "likes" SET "user_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["user_id", 6], ["updated_at", "2019-02-14 06:03:36.642533"], ["id", 5]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mLike Update (0.5ms)[0m  [1m[33mUPDATE "likes" SET "user_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["user_id", 6], ["updated_at", "2019-02-14 06:03:36.653151"], ["id", 6]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:46
+  [1m[36mLike Update (0.5ms)[0m  [1m[33mUPDATE "likes" SET "tweet_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["tweet_id", 1], ["updated_at", "2019-02-14 06:03:36.659734"], ["id", 3]]
+  ↳ db/seeds.rb:46
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:46
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:46
+  [1m[36mLike Update (0.4ms)[0m  [1m[33mUPDATE "likes" SET "tweet_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["tweet_id", 1], ["updated_at", "2019-02-14 06:03:36.664226"], ["id", 5]]
+  ↳ db/seeds.rb:46
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:46
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mLike Update (0.6ms)[0m  [1m[33mUPDATE "likes" SET "tweet_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["tweet_id", 2], ["updated_at", "2019-02-14 06:03:36.678935"], ["id", 1]]
+  ↳ db/seeds.rb:47
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mLike Update (0.4ms)[0m  [1m[33mUPDATE "likes" SET "tweet_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["tweet_id", 2], ["updated_at", "2019-02-14 06:03:36.683284"], ["id", 6]]
+  ↳ db/seeds.rb:47
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:48
+  [1m[36mLike Update (0.4ms)[0m  [1m[33mUPDATE "likes" SET "tweet_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["tweet_id", 3], ["updated_at", "2019-02-14 06:03:36.687530"], ["id", 2]]
+  ↳ db/seeds.rb:48
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:48
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:48
+  [1m[36mLike Update (0.4ms)[0m  [1m[33mUPDATE "likes" SET "tweet_id" = $1, "updated_at" = $2 WHERE "likes"."id" = $3[0m  [["tweet_id", 3], ["updated_at", "2019-02-14 06:03:36.691423"], ["id", 4]]
+  ↳ db/seeds.rb:48
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:48
+Started GET "/tweets" for ::1 at 2019-02-14 17:13:50 +1100
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/arundhungel/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/Users/arundhungel/wdi/Projects/Project2/twitter-backend-/app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/tweets" for ::1 at 2019-02-14 17:13:52 +1100
+  
+SyntaxError (/Users/arundhungel/wdi/Projects/Project2/twitter-backend-/app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/tweets" for ::1 at 2019-02-14 17:19:08 +1100
+  
+SyntaxError (/Users/arundhungel/wdi/Projects/Project2/twitter-backend-/app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/tweets" for ::1 at 2019-02-14 17:19:09 +1100
+  
+SyntaxError (/Users/arundhungel/wdi/Projects/Project2/twitter-backend-/app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/tweets" for ::1 at 2019-02-14 17:19:57 +1100
+  
+SyntaxError (/Users/arundhungel/wdi/Projects/Project2/twitter-backend-/app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/tweets" for ::1 at 2019-02-14 17:19:58 +1100
+  
+SyntaxError (/Users/arundhungel/wdi/Projects/Project2/twitter-backend-/app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/tweets_controller.rb:77: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/tweets" for ::1 at 2019-02-14 17:29:44 +1100
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/arundhungel/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by TweetsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ /Users/arundhungel/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mTweet Load (20.5ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at Desc[0m
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+Completed 200 OK in 327ms (Views: 77.8ms | ActiveRecord: 47.5ms)
+
+
+Started GET "/tweets" for ::1 at 2019-02-14 17:29:44 +1100
+Processing by TweetsController#index as HTML
+  [1m[36mUser Load (24.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ /Users/arundhungel/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mTweet Load (7.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" ORDER BY created_at Desc[0m
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9
+Completed 200 OK in 81ms (Views: 33.0ms | ActiveRecord: 39.1ms)
+
+

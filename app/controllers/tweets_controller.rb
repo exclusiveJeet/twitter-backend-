@@ -6,12 +6,8 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweets = Tweet.all.order("created_at Desc")
-
-
-    respond_to do |format|
-      format.html
-      format.json { render json:@tweets, :include => :user}
-    end
+    render json:@tweets, :include => :user
+     end
   end
 
   # GET /tweets/1
@@ -78,4 +74,3 @@ class TweetsController < ApplicationController
     def tweet_params
       params.require(:tweet).permit(:content)
     end
-end
