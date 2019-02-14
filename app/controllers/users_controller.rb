@@ -11,11 +11,16 @@ class UsersController < ApplicationController
     render json:@users
   end
 
+  def find
+    @user = User.find_by_email params[:email]
+    render json:@user
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
     @user = User.find params[:id]
-    render json:@user
+    render json:@user, :include => :tweets
   end
 
   # GET /users/new

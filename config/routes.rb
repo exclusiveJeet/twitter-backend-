@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users
   resources :tweets
   resources :likes
+  get '/user' => 'users#find'
 end
