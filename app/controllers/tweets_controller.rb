@@ -6,11 +6,7 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweets = Tweet.all
-
-    respond_to do |format|
-      format.html
-      format.json { render json:@tweets}
-    end
+    render json:@tweets, :include => :user
   end
 
   # GET /tweets/1
@@ -31,14 +27,10 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.new(tweet_params)
-
-    respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
-        format.json { render :show, status: :created, location: @tweet }
+        render json:@tweet
       else
-        format.html { render :new }
-        format.json { render json: @tweet.errors, status: :unprocessable_entity }
+        render json:@tweet.errors
       end
     end
   end
@@ -75,6 +67,5 @@ class TweetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tweet_params
-      params.require(:tweet).permit(:content)
+      params.permit(:content, :user_id)
     end
-end
