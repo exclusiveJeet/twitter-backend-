@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-u1 = User.create :firstname => "Inder" , :lastname =>"Singh" , :handle =>"Inder123", :password => "123" , :image => "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" , :email =>"exclusive_jeet@yahoo.com"
+u1 = User.create :firstname => "Inder" , :lastname =>"Singh" , :handle =>"Inder123", :password => "123" , :image => "https://www.google.com/search?q=thumbnail+pics&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiYifmjiLzgAhXQbX0KHdTmAK8Q_AUIDigB&biw=1440&bih=722#imgrc=2cR3QOrJXEcZCM:" , :email =>"exclusive_jeet@yahoo.com"
 u2 = User.create :firstname => "Arun" , :lastname =>"Dhungel" , :handle =>"Arun456", :password => "123"  ,:image => "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" , :email =>"Arun@gmail.com"
 u3 = User.create :firstname => "Daniel" , :lastname =>"Meneses" , :handle =>"Daniel8910", :password => "123" , :image => "https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" , :email =>"Daniel@gmail.com"
 
